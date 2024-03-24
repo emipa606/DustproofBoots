@@ -8,8 +8,7 @@ namespace DustproofBoots;
     typeof(int), typeof(FilthSourceFlags))]
 public static class FilthMaker_TryMakeFilth
 {
-    public static bool Prefix(IntVec3 c, Map map, ThingDef filthDef, int count = 1,
-        FilthSourceFlags additionalFlags = FilthSourceFlags.None)
+    public static bool Prefix(IntVec3 c, Map map, ThingDef filthDef)
     {
         if (filthDef == null || filthDef != ThingDefOf.Filth_Trash)
         {

@@ -1,13 +1,10 @@
-using System;
 using HarmonyLib;
 using RimWorld;
 using Verse;
 
 namespace DustproofBoots;
 
-[HarmonyPatch(typeof(Pawn_FilthTracker), "Notify_EnteredNewCell", new Type[]
-{
-})]
+[HarmonyPatch(typeof(Pawn_FilthTracker), "Notify_EnteredNewCell", [])]
 public static class Pawn_FilthTracker_Notify_EnteredNewCell
 {
     public static bool Prefix(Pawn_FilthTracker __instance)
