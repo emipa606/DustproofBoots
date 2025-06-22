@@ -5,28 +5,25 @@ using Verse;
 
 namespace DustproofBoots;
 
-[HarmonyPatch(typeof(Pawn_FilthTracker), "GainFilth", typeof(ThingDef), typeof(IEnumerable<string>))]
+[HarmonyPatch(typeof(Pawn_FilthTracker), nameof(Pawn_FilthTracker.GainFilth), typeof(ThingDef),
+    typeof(IEnumerable<string>))]
 public static class Pawn_FilthTracker_GainFilth
 {
-    public static bool Prefix(Pawn_FilthTracker __instance)
+    public static bool Prefix(Pawn ___pawn, ref List<Filth> ___carriedFilth)
     {
-        var traverse = Traverse.Create(__instance);
-        var value = traverse.Field("pawn").GetValue<Pawn>();
-        if (!value.Spawned || !value.RaceProps.Humanlike)
+        if (!___pawn.Spawned || !___pawn.RaceProps.Humanlike)
         {
             return true;
         }
 
-        foreach (var apparel in value.apparel.WornApparel)
+        foreach (var apparel in ___pawn.apparel.WornApparel)
         {
             if (apparel.def.defName != "Apparel_DustproofBoots")
             {
                 continue;
             }
 
-            var value2 = traverse.Field("carriedFilth").GetValue<List<Filth>>();
-            value2.Clear();
-            traverse.Field("carriedFilth").SetValue(value2);
+            ___carriedFilth.Clear();
             return false;
         }
 

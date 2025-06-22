@@ -4,7 +4,8 @@ using Verse;
 
 namespace DustproofBoots;
 
-[HarmonyPatch(typeof(FilthMaker), "TryMakeFilth", typeof(IntVec3), typeof(Map), typeof(ThingDef), typeof(string),
+[HarmonyPatch(typeof(FilthMaker), nameof(FilthMaker.TryMakeFilth), typeof(IntVec3), typeof(Map), typeof(ThingDef),
+    typeof(string),
     typeof(int), typeof(FilthSourceFlags))]
 public static class FilthMaker_TryMakeFilth
 {

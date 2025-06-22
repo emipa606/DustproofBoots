@@ -4,19 +4,17 @@ using Verse;
 
 namespace DustproofBoots;
 
-[HarmonyPatch(typeof(Pawn_FilthTracker), "Notify_EnteredNewCell", [])]
+[HarmonyPatch(typeof(Pawn_FilthTracker), nameof(Pawn_FilthTracker.Notify_EnteredNewCell), [])]
 public static class Pawn_FilthTracker_Notify_EnteredNewCell
 {
-    public static bool Prefix(Pawn_FilthTracker __instance)
+    public static bool Prefix(Pawn_FilthTracker __instance, Pawn ___pawn)
     {
-        var traverse = Traverse.Create(__instance);
-        var value = traverse.Field("pawn").GetValue<Pawn>();
-        if (!value.Spawned || !value.RaceProps.Humanlike)
+        if (!___pawn.Spawned || !___pawn.RaceProps.Humanlike)
         {
             return true;
         }
 
-        foreach (var apparel in value.apparel.WornApparel)
+        foreach (var apparel in ___pawn.apparel.WornApparel)
         {
             if (apparel.def.defName == "Apparel_DustproofBoots")
             {
