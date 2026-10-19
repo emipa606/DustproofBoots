@@ -35,4 +35,4 @@ Emmm...That's all.
 
  
 
-[![Image](https://img.shields.io/github/v/release/emipa606/DustproofBoots?label=latest%20version&style=plastic&color=9f1111&labelColor=black)](https://steamcommunity.com/sharedfiles/filedetails/changelog/2024178911) | tags: colonist footwear, cleanliness
+[![Image](https://img.shields.io/github/v/release/emipa606/DustproofBoots?label=latest%20version&style=plastic&color=9f1111&labelColor=black)](https://steamcommunity.com/sharedfiles/filedetails/changelog/2024178911) | cleanliness, colonist footwear
